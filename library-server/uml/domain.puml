@@ -1,0 +1,32 @@
+@startuml
+class User{
+ID
+用户名
+身份证
+角色
+}
+class Book{
+ID
+ISBN
+书名
+库存
+}
+class Borrow{
+ID
+用户
+图书
+借阅时间
+}
+class History{
+ID
+用户
+图书
+借阅时间
+归还时间
+}
+Book "1" *- "N" Borrow
+Borrow "N" -* "1" User
+Borrow ..> History: > return
+Book "1" -- "N" History
+User "1" -- "N" History
+@enduml
